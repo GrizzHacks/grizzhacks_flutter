@@ -27,7 +27,9 @@ class _EventTileState extends State<EventTile> {
       ),
       decoration: new BoxDecoration(
         border: new Border(
-          bottom: new BorderSide(),
+          bottom: new BorderSide(
+            color: Theme.of(context).dividerColor,
+          ),
         ),
       ),
     );

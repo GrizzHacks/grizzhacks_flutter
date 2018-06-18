@@ -24,7 +24,9 @@ class _SponsorTileState extends State<SponsorTile> {
       ),
       decoration: new BoxDecoration(
         border: new Border(
-          bottom: new BorderSide(),
+          bottom: new BorderSide(
+            color: Theme.of(context).dividerColor,
+          ),
         ),
       ),
     );

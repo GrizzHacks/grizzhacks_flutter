@@ -27,7 +27,9 @@ class _AnnouncementTileState extends State<AnnouncementTile> {
       ),
       decoration: new BoxDecoration(
         border: new Border(
-          bottom: new BorderSide(),
+          bottom: new BorderSide(
+            color: Theme.of(context).dividerColor,
+          ),
         ),
       ),
     );
