@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'navigation.dart';
-import 'announcement_route.dart';
+import 'package:grizzhacks_flutter/announcements/announcement_route.dart';
 
 void main() => runApp(new MyApp());
 

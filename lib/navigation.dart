@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'announcement_route.dart';
+import 'package:grizzhacks_flutter/announcements/announcement_route.dart';
 import 'dart:io';
 
 /// An extension of BottomNavigationBarItem that also contains a route that we want to navigate to when it's selected.
