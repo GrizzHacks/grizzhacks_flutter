@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'navigation.dart';
 import 'package:grizzhacks_flutter/announcements/announcement_route.dart';
+import 'package:grizzhacks_flutter/events/event_route.dart';
 
 void main() => runApp(new MyApp());
 
@@ -24,10 +25,11 @@ class _MyAppState extends State<MyApp> {
   /// The body of our scaffold can very depending on the selected route.
   Widget _getBody() {
     switch (_route) {
-      case AnnouncementRoute.route_name:
+      case EventRoute.route_name:
         {
-          return AnnouncementRoute();
+          return EventRoute();
         }
+      case AnnouncementRoute.route_name:
       default:
         {
           return AnnouncementRoute();
