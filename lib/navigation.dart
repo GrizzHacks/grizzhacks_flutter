@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:grizzhacks_flutter/announcements/announcement_route.dart';
 import 'package:grizzhacks_flutter/events/event_route.dart';
+import 'package:grizzhacks_flutter/sponsors/sponsor_route.dart';
 import 'dart:io';
 
 /// An extension of BottomNavigationBarItem that also contains a route that we want to navigate to when it's selected.
@@ -47,9 +48,9 @@ class _GHNavigationBarState extends State<GHNavigationBar> {
 
   final _sponsors = new RouteNavigationBarItem(
       icon: new Icon(Icons.favorite),
-      title: new Text("Sponsors"),
+      title: new Text(SponsorRoute.nav_name),
       backgroundColor: Colors.blue,
-      route: "/sponsors");
+      route: SponsorRoute.route_name);
 
   final _help = new RouteNavigationBarItem(
       icon: new Icon(Icons.info),

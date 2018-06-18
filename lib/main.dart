@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'navigation.dart';
 import 'package:grizzhacks_flutter/announcements/announcement_route.dart';
 import 'package:grizzhacks_flutter/events/event_route.dart';
+import 'package:grizzhacks_flutter/sponsors/sponsor_route.dart';
 
 void main() => runApp(new MyApp());
 
@@ -28,6 +29,10 @@ class _MyAppState extends State<MyApp> {
       case EventRoute.route_name:
         {
           return EventRoute();
+        }
+      case SponsorRoute.route_name:
+        {
+          return SponsorRoute();
         }
       case AnnouncementRoute.route_name:
       default:
