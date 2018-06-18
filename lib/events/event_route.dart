@@ -1,38 +1,28 @@
 import 'package:flutter/material.dart';
 import 'event.dart';
 import 'event_tile.dart';
+import 'package:grizzhacks_flutter/data/repository.dart';
 
 /// Route that displays a list of events.
 class EventRoute extends StatefulWidget {
   static const route_name = "/events";
   static const nav_name = "Events";
+  final GHRepository repository;
 
-  const EventRoute();
+  const EventRoute({@required this.repository}) : assert(repository != null);
 
   @override
   State<StatefulWidget> createState() => new _EventRouteState();
 }
 
 class _EventRouteState extends State<EventRoute> {
-  final _events = <Event>[];
-
-  ///TODO: Replace with real events
-  void _getEvents() {
-    _events
-        .add(Event(title: "Workshop 1", location: "EC 100", time: "12:00 PM"));
-
-    _events
-        .add(Event(title: "Workshop 2", location: "EC 200", time: "12:00 PM"));
-
-    _events
-        .add(Event(title: "Workshop 3", location: "EC 300", time: "12:00 PM"));
-  }
+  List<Event> _events;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    _getEvents();
+    _events = widget.repository.getEvents();
   }
 
   @override

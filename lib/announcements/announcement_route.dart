@@ -1,38 +1,29 @@
 import 'package:flutter/material.dart';
 import 'announcement.dart';
 import 'announcement_tile.dart';
+import 'package:grizzhacks_flutter/data/repository.dart';
 
 /// Route that displays a list of announcements.
 class AnnouncementRoute extends StatefulWidget {
   static const route_name = "/announcements";
   static const nav_name = "Announcements";
+  final GHRepository repository;
 
-  const AnnouncementRoute();
+  const AnnouncementRoute({@required this.repository})
+      : assert(repository != null);
 
   @override
   State<StatefulWidget> createState() => new _AnnouncementRouteState();
 }
 
 class _AnnouncementRouteState extends State<AnnouncementRoute> {
-  final _announcements = <Announcement>[];
-
-  ///TODO: Replace with real announcements
-  void _getAnnouncements() {
-    _announcements.add(Announcement(
-        title: "Test Announcement 1", subtitle: "Test Subtitle 1"));
-
-    _announcements.add(Announcement(
-        title: "Test Announcement 2", subtitle: "Test Subtitle 2"));
-
-    _announcements.add(Announcement(
-        title: "Test Announcement 3", subtitle: "Test Subtitle 3"));
-  }
+  List<Announcement> _announcements;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    _getAnnouncements();
+    _announcements = widget.repository.getAnnouncements();
   }
 
   @override

@@ -4,6 +4,7 @@ import 'package:grizzhacks_flutter/announcements/announcement_route.dart';
 import 'package:grizzhacks_flutter/events/event_route.dart';
 import 'package:grizzhacks_flutter/sponsors/sponsor_route.dart';
 import 'help_route.dart';
+import 'package:grizzhacks_flutter/data/repository.dart';
 
 void main() => runApp(new MyApp());
 
@@ -15,6 +16,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final _title = "GrizzHacks 2018";
+  final _repository = GHRepository();
   String _route;
 
   /// Anytime the user clicks a navigation item in our bottom bar, we need to update the route.
@@ -29,11 +31,15 @@ class _MyAppState extends State<MyApp> {
     switch (_route) {
       case EventRoute.route_name:
         {
-          return EventRoute();
+          return EventRoute(
+            repository: _repository,
+          );
         }
       case SponsorRoute.route_name:
         {
-          return SponsorRoute();
+          return SponsorRoute(
+            repository: _repository,
+          );
         }
       case HelpRoute.route_name:
         {
@@ -42,7 +48,9 @@ class _MyAppState extends State<MyApp> {
       case AnnouncementRoute.route_name:
       default:
         {
-          return AnnouncementRoute();
+          return AnnouncementRoute(
+            repository: _repository,
+          );
         }
     }
   }

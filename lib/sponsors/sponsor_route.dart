@@ -1,34 +1,28 @@
 import 'package:flutter/material.dart';
 import 'sponsor.dart';
 import 'sponsor_tile.dart';
+import 'package:grizzhacks_flutter/data/repository.dart';
 
 /// Route that displays a list of sponsors.
 class SponsorRoute extends StatefulWidget {
   static const route_name = "/sponsors";
   static const nav_name = "Sponsors";
+  final GHRepository repository;
 
-  const SponsorRoute();
+  const SponsorRoute({@required this.repository}) : assert(repository != null);
 
   @override
   State<StatefulWidget> createState() => new _SponsorRouteState();
 }
 
 class _SponsorRouteState extends State<SponsorRoute> {
-  final _sponsors = <Sponsor>[];
-
-  ///TODO: Replace with real sponsors.
-  void _getSponsors() {
-    _sponsors.add(Sponsor(name: "Apple", logo: ""));
-    _sponsors.add(Sponsor(name: "Microsoft", logo: ""));
-    _sponsors.add(Sponsor(name: "Google", logo: ""));
-    _sponsors.add(Sponsor(name: "Facebook", logo: ""));
-  }
+  List<Sponsor> _sponsors;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    _getSponsors();
+    _sponsors = widget.repository.getSponsors();
   }
 
   @override
