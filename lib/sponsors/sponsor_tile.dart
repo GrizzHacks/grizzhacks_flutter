@@ -14,18 +14,71 @@ class SponsorTile extends StatefulWidget {
 }
 
 class _SponsorTileState extends State<SponsorTile> {
+  static const double height = 300.0;
+
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      child: ListTile(
-        title: new Text(
-          widget.sponsor.name,
-        ),
-      ),
-      decoration: new BoxDecoration(
-        border: new Border(
-          bottom: new BorderSide(
-            color: Theme.of(context).dividerColor,
+    final ThemeData theme = Theme.of(context);
+    final TextStyle titleStyle = theme.textTheme.headline.copyWith(
+      color: Colors.black,
+    );
+    final TextStyle descriptionStyle = theme.textTheme.subhead;
+
+    return new SafeArea(
+      top: false,
+      bottom: false,
+      child: new Container(
+        height: height,
+        padding: const EdgeInsets.all(8.0),
+        child: new Card(
+          //TODO: shape: shape,
+          child: new Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              new SizedBox(
+                height: 184.0,
+                child: new Stack(
+                  children: <Widget>[
+                    new Positioned.fill(
+                      child: new Image.asset(
+                        widget.sponsor.logoAsset,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // description and share/explore buttons
+              new Expanded(
+                child: new Padding(
+                  padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
+                  child: new DefaultTextStyle(
+                    softWrap: false,
+                    overflow: TextOverflow.ellipsis,
+                    style: descriptionStyle,
+                    child: new Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        new Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: new Text(
+                            widget.sponsor.name,
+                            style: titleStyle,
+                          ),
+                        ),
+                        new Text(
+                          widget.sponsor.description,
+                          style: descriptionStyle.copyWith(
+                            color: Colors.black54,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
