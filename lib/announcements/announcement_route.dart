@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'announcement.dart';
 import 'announcement_tile.dart';
 import 'package:grizzhacks_flutter/data/repository.dart';
+import 'dart:async';
 
 /// Route that displays a list of announcements.
 class AnnouncementRoute extends StatefulWidget {
@@ -17,13 +18,32 @@ class AnnouncementRoute extends StatefulWidget {
 }
 
 class _AnnouncementRouteState extends State<AnnouncementRoute> {
-  List<Announcement> _announcements;
+  final _announcements = <Announcement>[];
+
+  Future<void> _retrieveAnnouncements() async {
+    final jsonAnnouncements = await widget.repository.getAnnouncements();
+
+    if (jsonAnnouncements != null) {
+      final announcements = <Announcement>[];
+
+      for (var announcement in jsonAnnouncements) {
+        announcements.add(Announcement.fromJson(announcement));
+      }
+
+      setState(() {
+        _announcements.clear();
+        _announcements.addAll(announcements);
+      });
+    }
+  }
 
   @override
-  void didChangeDependencies() {
+  Future<void> didChangeDependencies() async {
     super.didChangeDependencies();
 
-    _announcements = widget.repository.getAnnouncements();
+    if (_announcements.isEmpty) {
+      await _retrieveAnnouncements();
+    }
   }
 
   @override

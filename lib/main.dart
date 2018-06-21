@@ -5,6 +5,7 @@ import 'package:grizzhacks_flutter/events/event_route.dart';
 import 'package:grizzhacks_flutter/sponsors/sponsor_route.dart';
 import 'help_route.dart';
 import 'package:grizzhacks_flutter/data/repository.dart';
+import 'package:grizzhacks_flutter/data/api.dart';
 
 void main() => runApp(new MyApp());
 
@@ -16,7 +17,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final _title = "GrizzHacks 2018";
-  final _repository = GHRepository();
+  final _repository = GHRepository(api: new GHApi());
   String _route;
 
   /// Anytime the user clicks a navigation item in our bottom bar, we need to update the route.

@@ -1,22 +1,15 @@
-import 'package:grizzhacks_flutter/announcements/announcement.dart';
 import 'package:grizzhacks_flutter/events/event.dart';
 import 'package:grizzhacks_flutter/sponsors/sponsor.dart';
+import 'api.dart';
+import 'dart:async';
 
 class GHRepository {
-  ///TODO: Replace with real announcements.
-  List<Announcement> getAnnouncements() {
-    var _results = <Announcement>[];
+  final GHApi api;
 
-    _results.add(Announcement(
-        title: "Test Announcement 1", subtitle: "Test Subtitle 1"));
+  const GHRepository({this.api}) : assert(api != null);
 
-    _results.add(Announcement(
-        title: "Test Announcement 2", subtitle: "Test Subtitle 2"));
-
-    _results.add(Announcement(
-        title: "Test Announcement 3", subtitle: "Test Subtitle 3"));
-
-    return _results;
+  Future<List> getAnnouncements() async {
+    return api.getAnnouncements();
   }
 
   ///TODO: Replace with real events.
@@ -56,7 +49,7 @@ class GHRepository {
       logoAsset: "assets/sponsors/google.jpg",
       description: "We search things.",
     ));
-    
+
     _results.add(Sponsor(
       name: "Facebook",
       logoAsset: "assets/sponsors/facebook.png",
