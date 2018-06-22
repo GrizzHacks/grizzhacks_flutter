@@ -4,12 +4,12 @@ import 'dart:convert' show json, utf8;
 
 class GHApi {
   final _httpClient = HttpClient();
-  final _url =
-      "raw.githubusercontent.com";
+  final _url = "raw.githubusercontent.com";
 
   /// Retrieves the list of announcements from the server, currently just a JSON file in the GitHub repo.
   Future<List> getAnnouncements() async {
-    final uri = Uri.https(_url, "/GrizzHacks/grizzhacks_flutter/master/data/announcements.json");
+    final uri = Uri.https(
+        _url, "/GrizzHacks/grizzhacks_flutter/master/data/announcements.json");
 
     final jsonResponse = await _getJson(uri);
 
@@ -19,6 +19,21 @@ class GHApi {
     }
 
     return jsonResponse["announcements"];
+  }
+
+  /// Retrieves the list of events from the server, currently just a JSON file in the GitHub repo.
+  Future<List> getEvents() async {
+    final uri = Uri.https(
+        _url, "/GrizzHacks/grizzhacks_flutter/master/data/events.json");
+
+    final jsonResponse = await _getJson(uri);
+
+    if (jsonResponse == null || jsonResponse["events"] == null) {
+      print("Error retrieving events.");
+      return null;
+    }
+
+    return jsonResponse["events"];
   }
 
   /// Fetches and decodes a JSON object represented as a Dart [Map].

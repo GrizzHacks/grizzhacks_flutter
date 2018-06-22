@@ -12,20 +12,8 @@ class GHRepository {
     return api.getAnnouncements();
   }
 
-  ///TODO: Replace with real events.
-  List<Event> getEvents() {
-    var _results = <Event>[];
-
-    _results
-        .add(Event(title: "Workshop 1", location: "EC 100", time: "12:00 PM"));
-
-    _results
-        .add(Event(title: "Workshop 2", location: "EC 200", time: "12:00 PM"));
-
-    _results
-        .add(Event(title: "Workshop 3", location: "EC 300", time: "12:00 PM"));
-
-    return _results;
+  Future<List> getEvents() {
+    return api.getEvents();
   }
 
   //TODO: Replace with real sponsors.
