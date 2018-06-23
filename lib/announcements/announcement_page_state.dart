@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'announcement_page.dart';
 
+/// This class should only contain business logic, and have nothing to do with the user interface.
+/// All of that belongs in a view class that implements from this.
 abstract class AnnouncementPageState extends State<AnnouncementPage> {
   @protected
   final announcements = <Announcement>[];
@@ -22,6 +24,15 @@ abstract class AnnouncementPageState extends State<AnnouncementPage> {
         announcements.clear();
         announcements.addAll(tempAnnouncements);
       });
+    }
+  }
+
+  @override
+  Future<void> didChangeDependencies() async {
+    super.didChangeDependencies();
+
+    if (announcements.isEmpty) {
+      await retrieveAnnouncements();
     }
   }
 }
