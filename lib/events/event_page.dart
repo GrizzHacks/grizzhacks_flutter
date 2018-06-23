@@ -1,60 +1,17 @@
 import 'package:flutter/material.dart';
-import 'event.dart';
-import 'event_tile.dart';
+import 'event_page_view.dart';
 import 'package:grizzhacks_flutter/data/repository.dart';
-import 'dart:async';
 
-/// Route that displays a list of events.
+/// Page that displays a list of events. This maintains some static fields that will be used for
+/// this page in the navigation drawer, and also the repository for pulling data.
 class EventPage extends StatefulWidget {
   static const route_name = "/events";
   static const nav_name = "Events";
+  
   final GHRepository repository;
 
   const EventPage({@required this.repository}) : assert(repository != null);
 
   @override
-  State<StatefulWidget> createState() => new _EventPageState();
-}
-
-class _EventPageState extends State<EventPage> {
-  final _events = <Event>[];
-
-  Future<void> _retrieveAnnouncements() async {
-    final jsonEvents = await widget.repository.getEvents();
-
-    if (jsonEvents != null) {
-      final events = <Event>[];
-
-      for (var event in jsonEvents) {
-        events.add(Event.fromJson(event));
-      }
-
-      setState(() {
-        _events.clear();
-        _events.addAll(events);
-      });
-    }
-  }
-
-  @override
-  Future<void> didChangeDependencies() async {
-    super.didChangeDependencies();
-
-    if (_events.isEmpty) {
-      await _retrieveAnnouncements();
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (BuildContext context, int index) {
-        var _event = _events[index];
-        return new EventTile(
-          event: _event,
-        );
-      },
-      itemCount: _events.length,
-    );
-  }
+  State<StatefulWidget> createState() => new EventPageView();
 }
