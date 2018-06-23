@@ -5,19 +5,19 @@ import 'package:grizzhacks_flutter/data/repository.dart';
 import 'dart:async';
 
 /// Route that displays a list of announcements.
-class AnnouncementRoute extends StatefulWidget {
+class AnnouncementPage extends StatefulWidget {
   static const route_name = "/announcements";
   static const nav_name = "Announcements";
   final GHRepository repository;
 
-  const AnnouncementRoute({@required this.repository})
+  const AnnouncementPage({@required this.repository})
       : assert(repository != null);
 
   @override
-  State<StatefulWidget> createState() => new _AnnouncementRouteState();
+  State<StatefulWidget> createState() => new _AnnouncementPage();
 }
 
-class _AnnouncementRouteState extends State<AnnouncementRoute> {
+class _AnnouncementPage extends State<AnnouncementPage> {
   final _announcements = <Announcement>[];
 
   Future<void> _retrieveAnnouncements() async {

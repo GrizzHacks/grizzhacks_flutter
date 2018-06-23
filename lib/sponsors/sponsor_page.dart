@@ -4,18 +4,18 @@ import 'sponsor_tile.dart';
 import 'package:grizzhacks_flutter/data/repository.dart';
 
 /// Route that displays a list of sponsors.
-class SponsorRoute extends StatefulWidget {
+class SponsorPage extends StatefulWidget {
   static const route_name = "/sponsors";
   static const nav_name = "Sponsors";
   final GHRepository repository;
 
-  const SponsorRoute({@required this.repository}) : assert(repository != null);
+  const SponsorPage({@required this.repository}) : assert(repository != null);
 
   @override
-  State<StatefulWidget> createState() => new _SponsorRouteState();
+  State<StatefulWidget> createState() => new _SponsorPageState();
 }
 
-class _SponsorRouteState extends State<SponsorRoute> {
+class _SponsorPageState extends State<SponsorPage> {
   List<Sponsor> _sponsors;
 
   @override

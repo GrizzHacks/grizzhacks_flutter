@@ -5,18 +5,18 @@ import 'package:grizzhacks_flutter/data/repository.dart';
 import 'dart:async';
 
 /// Route that displays a list of events.
-class EventRoute extends StatefulWidget {
+class EventPage extends StatefulWidget {
   static const route_name = "/events";
   static const nav_name = "Events";
   final GHRepository repository;
 
-  const EventRoute({@required this.repository}) : assert(repository != null);
+  const EventPage({@required this.repository}) : assert(repository != null);
 
   @override
-  State<StatefulWidget> createState() => new _EventRouteState();
+  State<StatefulWidget> createState() => new _EventPageState();
 }
 
-class _EventRouteState extends State<EventRoute> {
+class _EventPageState extends State<EventPage> {
   final _events = <Event>[];
 
   Future<void> _retrieveAnnouncements() async {

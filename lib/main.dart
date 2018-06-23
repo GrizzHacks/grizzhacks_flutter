@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'navigation.dart';
-import 'package:grizzhacks_flutter/announcements/announcement_route.dart';
-import 'package:grizzhacks_flutter/events/event_route.dart';
-import 'package:grizzhacks_flutter/sponsors/sponsor_route.dart';
+import 'package:grizzhacks_flutter/announcements/announcement_page.dart';
+import 'package:grizzhacks_flutter/events/event_page.dart';
+import 'package:grizzhacks_flutter/sponsors/sponsor_page.dart';
 import 'help_route.dart';
 import 'package:grizzhacks_flutter/data/repository.dart';
 import 'package:grizzhacks_flutter/data/api.dart';
@@ -30,15 +30,15 @@ class _MyAppState extends State<MyApp> {
   /// The body of our scaffold can very depending on the selected route.
   Widget _getBody() {
     switch (_route) {
-      case EventRoute.route_name:
+      case EventPage.route_name:
         {
-          return EventRoute(
+          return EventPage(
             repository: _repository,
           );
         }
-      case SponsorRoute.route_name:
+      case SponsorPage.route_name:
         {
-          return SponsorRoute(
+          return SponsorPage(
             repository: _repository,
           );
         }
@@ -46,10 +46,10 @@ class _MyAppState extends State<MyApp> {
         {
           return HelpRoute();
         }
-      case AnnouncementRoute.route_name:
+      case AnnouncementPage.route_name:
       default:
         {
-          return AnnouncementRoute(
+          return AnnouncementPage(
             repository: _repository,
           );
         }
