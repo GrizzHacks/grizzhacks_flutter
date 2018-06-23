@@ -6,11 +6,9 @@ import 'announcement_page.dart';
 /// This class should only contain business logic, and have nothing to do with the user interface.
 /// All of that belongs in a view class that implements from this.
 abstract class AnnouncementPageState extends State<AnnouncementPage> {
-  @protected
-  final announcements = <Announcement>[];
+  final _announcements = <Announcement>[];
 
-  @protected
-  Future<void> retrieveAnnouncements() async {
+  Future<void> _retrieveAnnouncements() async {
     final jsonAnnouncements = await widget.repository.getAnnouncements();
 
     if (jsonAnnouncements != null) {
@@ -21,8 +19,8 @@ abstract class AnnouncementPageState extends State<AnnouncementPage> {
       }
 
       setState(() {
-        announcements.clear();
-        announcements.addAll(tempAnnouncements);
+        _announcements.clear();
+        _announcements.addAll(tempAnnouncements);
       });
     }
   }
@@ -31,8 +29,16 @@ abstract class AnnouncementPageState extends State<AnnouncementPage> {
   Future<void> didChangeDependencies() async {
     super.didChangeDependencies();
 
-    if (announcements.isEmpty) {
-      await retrieveAnnouncements();
+    if (_announcements.isEmpty) {
+      await _retrieveAnnouncements();
     }
+  }
+
+  int getLength() {
+    return _announcements.length;
+  }
+
+  Announcement getAnnouncement(int position) {
+    return _announcements[position];
   }
 }

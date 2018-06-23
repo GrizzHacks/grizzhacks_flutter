@@ -9,12 +9,12 @@ class AnnouncementPageView extends AnnouncementPageState {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) {
-        var _announcement = announcements[index];
+        var _announcement = getAnnouncement(index);
         return new AnnouncementTile(
           announcement: _announcement,
         );
       },
-      itemCount: announcements.length,
+      itemCount: getLength(),
     );
   }
 }

@@ -9,12 +9,12 @@ class EventPageView extends EventPageState {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) {
-        var _event = events[index];
+        var _event = getEvent(index);
         return new EventTile(
           event: _event,
         );
       },
-      itemCount: events.length,
+      itemCount: getLength(),
     );
   }
 }

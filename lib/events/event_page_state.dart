@@ -6,8 +6,7 @@ import 'dart:async';
 /// This class should only contain business logic, and have nothing to do with the user interface.
 /// All of that belongs in a view class that implements from this.
 abstract class EventPageState extends State<EventPage> {
-  @protected
-  final events = <Event>[];
+  final _events = <Event>[];
 
   Future<void> _retrieveAnnouncements() async {
     final jsonEvents = await widget.repository.getEvents();
@@ -20,8 +19,8 @@ abstract class EventPageState extends State<EventPage> {
       }
 
       setState(() {
-        events.clear();
-        events.addAll(tempEvents);
+        _events.clear();
+        _events.addAll(tempEvents);
       });
     }
   }
@@ -30,8 +29,18 @@ abstract class EventPageState extends State<EventPage> {
   Future<void> didChangeDependencies() async {
     super.didChangeDependencies();
 
-    if (events.isEmpty) {
+    if (_events.isEmpty) {
       await _retrieveAnnouncements();
     }
+  }
+
+  @protected
+  int getLength() {
+    return _events.length;
+  }
+
+  @protected
+  Event getEvent(int position) {
+    return _events[position];
   }
 }
