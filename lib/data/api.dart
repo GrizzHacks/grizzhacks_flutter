@@ -36,6 +36,21 @@ class GHApi {
     return jsonResponse["events"];
   }
 
+  /// Retrieves the list of sponsors from the server, currently just a JSON file in the GitHub repo.
+  Future<List> getSponsors() async {
+    final uri = Uri.https(
+        _url, "/GrizzHacks/grizzhacks_flutter/master/data/sponsors.json");
+
+    final jsonResponse = await _getJson(uri);
+
+    if (jsonResponse == null || jsonResponse["sponsors"] == null) {
+      print("Error retrieving sponsors.");
+      return null;
+    }
+
+    return jsonResponse["sponsors"];
+  }
+
   /// Fetches and decodes a JSON object represented as a Dart [Map].
   ///
   /// Returns null if the API server is down, or the response is not JSON.

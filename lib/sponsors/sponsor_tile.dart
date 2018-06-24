@@ -41,8 +41,8 @@ class _SponsorTileState extends State<SponsorTile> {
                 child: new Stack(
                   children: <Widget>[
                     new Positioned.fill(
-                      child: new Image.asset(
-                        widget.sponsor.logoAsset,
+                      child: new Image.network(
+                        widget.sponsor.logo,
                         fit: BoxFit.contain,
                       ),
                     ),
