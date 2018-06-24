@@ -3,17 +3,17 @@
         {
             "title": "Opening Ceremony",
             "location": "EC 116",
-            "time": "2018-09-22T5:00:00-05:00"
+            "time": "2018-09-22 15:00:00"
         },
         {
             "title": "Hacking Begins",
             "location": "Engineering Center",
-            "time": "2018-09-22T7:00:00-05:00"
+            "time": "2018-09-22 17:00:00"
         },
         {
             "title": "Intro To Flutter",
             "location": "EC 275",
-            "time": "2018-09-22T09:00:00-05:00"
+            "time": "2018-09-22 18:00:00"
         }
     ]
 }
