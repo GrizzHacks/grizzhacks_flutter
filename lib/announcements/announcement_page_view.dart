@@ -14,7 +14,7 @@ class AnnouncementPageView extends AnnouncementPageState {
           announcement: _announcement,
         );
       },
-      itemCount: getLength(),
+      itemCount: getItemCount(),
     );
   }
 }

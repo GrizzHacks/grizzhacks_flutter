@@ -14,7 +14,7 @@ class EventPageView extends EventPageState {
           event: _event,
         );
       },
-      itemCount: getLength(),
+      itemCount: getItemCount(),
     );
   }
 }

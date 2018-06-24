@@ -34,7 +34,7 @@ abstract class AnnouncementPageState extends State<AnnouncementPage> {
     }
   }
 
-  int getLength() {
+  int getItemCount() {
     return _announcements.length;
   }
 

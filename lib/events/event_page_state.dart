@@ -35,7 +35,7 @@ abstract class EventPageState extends State<EventPage> {
   }
 
   @protected
-  int getLength() {
+  int getItemCount() {
     return _events.length;
   }
 
