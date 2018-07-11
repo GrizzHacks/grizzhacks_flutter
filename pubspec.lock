@@ -85,6 +85,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.5.0"
+  firebase_messaging:
+    dependency: "direct main"
+    description:
+      name: firebase_messaging
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -242,6 +249,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.6"
+  platform:
+    dependency: transitive
+    description:
+      name: platform
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.2"
   plugin:
     dependency: transitive
     description:
@@ -417,3 +431,4 @@ packages:
     version: "2.1.13"
 sdks:
   dart: ">=2.0.0-dev.52.0 <=2.0.0-dev.54.0.flutter-46ab040e58"
+  flutter: ">=0.1.4 <2.0.0"

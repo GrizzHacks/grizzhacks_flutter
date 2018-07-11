@@ -6,6 +6,9 @@ import 'package:grizzhacks_flutter/sponsors/sponsor_page.dart';
 import 'help_route.dart';
 import 'package:grizzhacks_flutter/data/repository.dart';
 import 'package:grizzhacks_flutter/data/api.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+
+final FirebaseMessaging _firebaseMessaging = new FirebaseMessaging();
 
 void main() => runApp(new MyApp());
 
