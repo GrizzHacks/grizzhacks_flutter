@@ -32,6 +32,9 @@ class Announcement {
       case "tech":
         _iconData = Icons.computer;
         break;
+      case "presentation":
+        _iconData = Icons.event_seat;
+        break;
     }
 
     if (_iconData == null) {
