@@ -32,6 +32,7 @@ class _AnnouncementTileState extends State<AnnouncementTile> {
             )
           ],
         ),
+        trailing: widget.announcement.icon(),
       ),
       decoration: new BoxDecoration(
         border: new Border(

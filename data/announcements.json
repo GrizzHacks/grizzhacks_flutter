@@ -3,17 +3,20 @@
         {
             "title": "Time To Hack!",
             "subtitle": "You have 24 hours. Good luck.",
-            "time": "2018-09-22 12:00:00"
+            "time": "2018-09-22 12:00:00",
+            "type": "tech"
         },
         {
             "title": "Dinner Is Served",
             "subtitle": "Sponsored by Quicken!",
-            "time": "2018-09-22 18:00:00"
+            "time": "2018-09-22 18:00:00",
+            "type": "food"
         },
         {
             "title": "Midnight Snack",
             "subtitle": "Insom-nom-nomnia cookies.",
-            "time": "2018-09-23 00:00:00"
+            "time": "2018-09-23 00:00:00",
+            "type": "food"
         }
     ]
 }
