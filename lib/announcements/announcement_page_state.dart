@@ -18,7 +18,8 @@ abstract class AnnouncementPageState extends State<AnnouncementPage> {
         tempAnnouncements.add(Announcement.fromJson(announcement));
       }
 
-      tempAnnouncements.sort((first, second) => first.time.compareTo(second.time));
+      // Will put newest first.
+      tempAnnouncements.sort((first, second) => second.time.compareTo(first.time));
 
       setState(() {
         _announcements.clear();

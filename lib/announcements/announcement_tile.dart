@@ -21,8 +21,16 @@ class _AnnouncementTileState extends State<AnnouncementTile> {
         title: new Text(
           widget.announcement.title,
         ),
-        subtitle: new Text(
-          widget.announcement.subtitle,
+        subtitle: new Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            new Text(
+              widget.announcement.subtitle,
+            ),
+            new Text(
+              widget.announcement.displayTime(),
+            )
+          ],
         ),
       ),
       decoration: new BoxDecoration(
