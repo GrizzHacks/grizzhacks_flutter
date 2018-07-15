@@ -1,14 +1,19 @@
+import 'package:intl/intl.dart';
+
 /// Represents an schedule event throughout the hackathon.
 class Event {
   final String title;
   final String location;
-  final String time;
+  final DateTime time;
 
   Event.fromJson(Map jsonMap)
       : title = jsonMap["title"],
         location = jsonMap["location"],
-        time = jsonMap["time"],
+        time = DateTime.tryParse(jsonMap["time"]),
         assert(title != null),
-        assert(location != null),
-        assert(time != null);
+        assert(location != null);
+
+  String displayTime() {
+    return DateFormat.jm().add_yMMMd().format(time);
+  }
 }

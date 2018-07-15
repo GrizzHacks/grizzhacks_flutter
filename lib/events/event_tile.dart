@@ -21,8 +21,16 @@ class _EventTileState extends State<EventTile> {
         title: new Text(
           widget.event.title,
         ),
-        subtitle: new Text(
-          widget.event.location,
+        subtitle: new Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            new Text(
+              widget.event.location,
+            ),
+            new Text(
+              widget.event.displayTime(),
+            ),
+          ],
         ),
       ),
       decoration: new BoxDecoration(

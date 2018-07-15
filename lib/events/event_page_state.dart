@@ -18,6 +18,9 @@ abstract class EventPageState extends State<EventPage> {
         tempEvents.add(Event.fromJson(event));
       }
 
+      // Will put oldest first.
+      tempEvents.sort((first, second) => first.time.compareTo(second.time));
+
       setState(() {
         _events.clear();
         _events.addAll(tempEvents);
