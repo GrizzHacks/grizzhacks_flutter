@@ -44,19 +44,19 @@ class _GHNavigationBarState extends State<GHNavigationBar> {
   final _schedule = new RouteNavigationBarItem(
       icon: new Icon(Icons.calendar_today),
       title: new Text(EventPage.nav_name),
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.green,
       route: EventPage.route_name);
 
   final _sponsors = new RouteNavigationBarItem(
       icon: new Icon(Icons.favorite),
       title: new Text(SponsorPage.nav_name),
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.green,
       route: SponsorPage.route_name);
 
   final _help = new RouteNavigationBarItem(
       icon: new Icon(Icons.info),
       title: new Text(HelpRoute.nav_name),
-      backgroundColor: Colors.purple,
+      backgroundColor: Colors.green,
       route: HelpRoute.route_name);
 
   List<RouteNavigationBarItem> _getItems() {
