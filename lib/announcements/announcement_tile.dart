@@ -20,19 +20,32 @@ class _AnnouncementTileState extends State<AnnouncementTile> {
       child: ListTile(
         title: new Text(
           widget.announcement.title,
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         subtitle: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             new Text(
               widget.announcement.subtitle,
+              style: TextStyle(
+                color: Colors.black,
+              ),
             ),
             new Text(
               widget.announcement.displayTime(),
+              style: TextStyle(
+                fontStyle: FontStyle.italic,
+              ),
             )
           ],
         ),
-        trailing: widget.announcement.icon(),
+        leading: Icon(
+          widget.announcement.iconData(),
+          color: Colors.black,
+        ),
       ),
       decoration: new BoxDecoration(
         border: new Border(

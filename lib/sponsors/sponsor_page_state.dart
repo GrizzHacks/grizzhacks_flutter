@@ -41,4 +41,9 @@ abstract class SponsorPageState extends State<SponsorPage> {
   Sponsor getSponsor(int position) {
     return _sponsors[position];
   }
+
+  @protected
+  bool isLoading() {
+    return _sponsors.isEmpty;
+  }
 }

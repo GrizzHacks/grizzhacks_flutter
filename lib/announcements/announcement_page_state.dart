@@ -19,7 +19,8 @@ abstract class AnnouncementPageState extends State<AnnouncementPage> {
       }
 
       // Will put newest first.
-      tempAnnouncements.sort((first, second) => second.time.compareTo(first.time));
+      tempAnnouncements
+          .sort((first, second) => second.time.compareTo(first.time));
 
       setState(() {
         _announcements.clear();
@@ -37,11 +38,18 @@ abstract class AnnouncementPageState extends State<AnnouncementPage> {
     }
   }
 
+  @protected
   int getItemCount() {
     return _announcements.length;
   }
 
+  @protected
   Announcement getAnnouncement(int position) {
     return _announcements[position];
+  }
+
+  @protected
+  bool isLoading() {
+    return _announcements.isEmpty;
   }
 }

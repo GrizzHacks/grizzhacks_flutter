@@ -1,4 +1,4 @@
-import 'package:intl/intl.dart';
+import 'package:timeago/timeago.dart';
 import 'package:flutter/material.dart';
 
 /// Represents an announcement in the application.
@@ -19,10 +19,10 @@ class Announcement {
 
   //TODO: Move these out of the announcement
   String displayTime() {
-    return DateFormat.jm().add_yMMMd().format(time);
+    return TimeAgo().format(time);
   }
 
-  Icon icon() {
+  IconData iconData() {
     IconData _iconData;
 
     switch (type) {
@@ -37,10 +37,6 @@ class Announcement {
         break;
     }
 
-    if (_iconData == null) {
-      return null;
-    } else {
-      return Icon(_iconData);
-    }
+    return _iconData;
   }
 }

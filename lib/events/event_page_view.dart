@@ -5,8 +5,13 @@ import 'event_tile.dart';
 /// This class should not contain any business logic, but only UI related functions and helper methods.
 /// The business logic can be found in [EventPageState].
 class EventPageView extends EventPageState {
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildProgressView() {
+    return Center(
+      child: CircularProgressIndicator(),
+    );
+  }
+
+  Widget _buildListView() {
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) {
         var _event = getEvent(index);
@@ -16,5 +21,14 @@ class EventPageView extends EventPageState {
       },
       itemCount: getItemCount(),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (isLoading()) {
+      return _buildProgressView();
+    } else {
+      return _buildListView();
+    }
   }
 }

@@ -8,7 +8,7 @@ import 'dart:async';
 abstract class EventPageState extends State<EventPage> {
   final _events = <Event>[];
 
-  Future<void> _retrieveAnnouncements() async {
+  Future<void> _retrieveEvents() async {
     final jsonEvents = await widget.repository.getEvents();
 
     if (jsonEvents != null) {
@@ -33,7 +33,7 @@ abstract class EventPageState extends State<EventPage> {
     super.didChangeDependencies();
 
     if (_events.isEmpty) {
-      await _retrieveAnnouncements();
+      await _retrieveEvents();
     }
   }
 
@@ -45,5 +45,10 @@ abstract class EventPageState extends State<EventPage> {
   @protected
   Event getEvent(int position) {
     return _events[position];
+  }
+
+  @protected
+  bool isLoading() {
+    return _events.isEmpty;
   }
 }

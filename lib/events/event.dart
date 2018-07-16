@@ -14,6 +14,6 @@ class Event {
         assert(location != null);
 
   String displayTime() {
-    return DateFormat.jm().add_yMMMd().format(time);
+    return DateFormat.jm().add_EEEE().format(time);
   }
 }
