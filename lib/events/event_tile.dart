@@ -20,15 +20,25 @@ class _EventTileState extends State<EventTile> {
       child: ListTile(
         title: new Text(
           widget.event.title,
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         subtitle: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             new Text(
               widget.event.location,
+              style: TextStyle(
+                color: Colors.black,
+              ),
             ),
             new Text(
               widget.event.displayTime(),
+              style: TextStyle(
+                fontStyle: FontStyle.italic,
+              ),
             ),
           ],
         ),
