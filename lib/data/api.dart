@@ -4,12 +4,12 @@ import 'dart:convert' show json, utf8;
 
 class GHApi {
   final _httpClient = HttpClient();
-  final _url = "raw.githubusercontent.com";
+  final _url = "grizzhacksou.herokuapp.com";
 
   /// Retrieves the list of announcements from the server, currently just a JSON file in the GitHub repo.
   Future<List> getAnnouncements() async {
     final uri = Uri.https(
-        _url, "/GrizzHacks/grizzhacks_flutter/master/data/announcements.json");
+        _url, "/announcements");
 
     final jsonResponse = await _getJson(uri);
 
@@ -24,7 +24,7 @@ class GHApi {
   /// Retrieves the list of events from the server, currently just a JSON file in the GitHub repo.
   Future<List> getEvents() async {
     final uri = Uri.https(
-        _url, "/GrizzHacks/grizzhacks_flutter/master/data/events.json");
+        _url, "/events");
 
     final jsonResponse = await _getJson(uri);
 
@@ -39,7 +39,7 @@ class GHApi {
   /// Retrieves the list of sponsors from the server, currently just a JSON file in the GitHub repo.
   Future<List> getSponsors() async {
     final uri = Uri.https(
-        _url, "/GrizzHacks/grizzhacks_flutter/master/data/sponsors.json");
+        _url, "/sponsors");
 
     final jsonResponse = await _getJson(uri);
 
@@ -59,7 +59,7 @@ class GHApi {
       final httpRequest = await _httpClient.getUrl(uri);
       final httpResponse = await httpRequest.close();
 
-      if (httpResponse.statusCode != HttpStatus.OK) {
+      if (httpResponse.statusCode != HttpStatus.ok) {
         return null;
       }
 
