@@ -4,18 +4,22 @@ import 'package:grizzhacks_flutter/data/api.dart';
 import 'package:grizzhacks_flutter/data/repository.dart';
 import 'package:grizzhacks_flutter/events/event_page.dart';
 import 'package:grizzhacks_flutter/sponsors/sponsor_page.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 import 'help_route.dart';
 import 'navigation.dart';
 
-//final FirebaseMessaging _firebaseMessaging = new FirebaseMessaging();
+final FirebaseMessaging _firebaseMessaging = new FirebaseMessaging();
 
 void main() => runApp(new MyApp());
 
 class MyApp extends StatefulWidget {
   // This widget is the root of your application.
   @override
-  State<StatefulWidget> createState() => new _MyAppState();
+  State<StatefulWidget> createState() {
+    _firebaseMessaging.requestNotificationPermissions();
+    return new _MyAppState();
+  }
 }
 
 class _MyAppState extends State<MyApp> {
